@@ -32,7 +32,7 @@
 
     errors: Circular dependencies
 
-    	=> used @lazy on both eventController and eventRepositoryImpl
+    		=> used @lazy on both eventController and eventRepositoryImpl
 
 
     => The app is launching
@@ -43,15 +43,9 @@
 
 	The expected behavior is not the actual one. The button delete does nothing at all.
 
-	To get the expected behavior, I had to change the delete(Long Eventid) by deleteById(Long EventId)
+	To get the expected behavior, I had to change the delete(Long EventId) by deleteById(Long EventId)
 
 	For the delete to be permanent, I replaced @Transactional(readOnly = true) by @Transactional
-
-
-    Changed delete(id) by deleteById(id) et  
-    et commenter les méthodes dans eventRepository
-
-    car soit delete(event) soit deleteById(id) 
 
 
 
@@ -60,9 +54,9 @@
 	I start by identifying that nothing is implemented beyond the updateEvent in the EventController
 
 
-	=> I added code in EventController and EventRepositoryImpl
+	=> I added code in the classes EventController and EventRepositoryImpl
 
-	=> I changed Repository<Event, Long> by CrudRepository<Event, Long> to use the save method
+	=> I changed Repository<Event, Long> to CrudRepository<Event, Long> to use the save method
 
 
 	I got the following errors:
@@ -111,8 +105,5 @@
   A bug was found on the events sharing the Band 'Pink Floyd'
   When launching the app, the events could not be deleted until at least one was updated with a rating or a comment.
   The bug was fixed by changing the CascadeType value from ALL to MERGE in the Event Entity.
-
-
-
 
 
